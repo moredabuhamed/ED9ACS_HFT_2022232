@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>ED9ACS_HFT_2022232_Data</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ED9ACS_HFT_2022232 Models\ED9ACS_HFT_2022232 Models.csproj" />
+  </ItemGroup>
+
+</Project>
