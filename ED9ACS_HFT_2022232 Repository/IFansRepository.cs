@@ -1,6 +1,8 @@
 ﻿namespace ED9ACS_HFT_2022232_Repository
 {
-    internal interface IFansRepository
+    public interface IFansRepository
     {
+        void UpdateCity(int id, string newcity);
+
     }
 }

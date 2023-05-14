@@ -24,7 +24,6 @@ namespace ED9ACS_HFT_2022232_Repository
         public void Delete(T entity)
         {
             context.Set<T>().Remove(entity);
-
             context.SaveChanges();
         }
     }
