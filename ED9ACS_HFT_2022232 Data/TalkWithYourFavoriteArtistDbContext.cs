@@ -46,7 +46,93 @@ namespace ED9ACS_HFT_2022232_Data
             Artists artist5 = new Artists() { Id = 5, Name = "Ahmed Cherkaoui", Category = "Painter", Duration = 1, Price = 20000 };
             Artists artist6 = new Artists() { Id = 6, Name = "Tahar Ben Jelloun", Category = "Writer", Duration = 1, Price = 30000 };
 
-        }
 
-        }
+            Fans fan1 = new Fans() { Id = 1, Name = "ibrahim ", PhoneNumber = 0610203050, City = "Rabat", Email = "ibrahim@gmail.com" };
+            Fans fan2 = new Fans() { Id = 2, Name = "kamal", PhoneNumber = 0610203750, City = "Casablanca", Email = "Kamal@gmail.com" };
+            Fans fan3 = new Fans() { Id = 3, Name = "Rachid", PhoneNumber = 0610403050, City = "Rabat", Email = "Rachid@gmail.com" };
+            Fans fan4 = new Fans() { Id = 4, Name = "Amin", PhoneNumber = 0620203050, City = "Tanger", Email = "Amin@gmail.com" };
+            Fans fan5 = new Fans() { Id = 5, Name = "Mohamed", PhoneNumber = 0630203050, City = "Marrakesh", Email = "Mohamed@gmail.com" };
+            Fans fan6 = new Fans() { Id = 6, Name = "Nabil", PhoneNumber = 0640203050, City = "Paris", Email = "Nabil@gmail.com" };
+            Fans fan7 = new Fans() { Id = 7, Name = "Khalid", PhoneNumber = 0650203050, City = "Agadir", Email = "Khalid@gmail.com" };
+            Fans fan8 = new Fans() { Id = 8, Name = "Karim", PhoneNumber = 0660203050, City = "Rabat", Email = "Karim@gmail.com" };
+            Fans fan9 = new Fans() { Id = 9, Name = "Sofia", PhoneNumber = 0670203050, City = "Casablance", Email = "Sofia@gmail.com" };
+            Fans fan10 = new Fans() { Id = 10, Name = "Meryem", PhoneNumber = 0680203050, City = "Tanger", Email = "Meryem@gmail.com" };
+            Fans fan11 = new Fans() { Id = 11, Name = "Youssef", PhoneNumber = 0690203050, City = "Rabat", Email = "Youssef@gmail.com" };
+
+
+            Reservations reservation1 = new Reservations() { Id = 1, FanId = fan1.Id, ArtistId = artist1.Id, DateTime = new DateTime(2021, 09, 08) };
+            Reservations reservation2 = new Reservations() { Id = 2, FanId = fan2.Id, ArtistId = artist3.Id, DateTime = new DateTime(2021, 09, 09) };
+            Reservations reservation3 = new Reservations() { Id = 3, FanId = fan5.Id, ArtistId = artist2.Id, DateTime = new DateTime(2021, 09, 10) };
+            Reservations reservation4 = new Reservations() { Id = 4, FanId = fan10.Id, ArtistId = artist1.Id, DateTime = new DateTime(2021, 09, 11) };
+            Reservations reservation5 = new Reservations() { Id = 5, FanId = fan4.Id, ArtistId = artist6.Id, DateTime = new DateTime(2021, 09, 12) };
+            Reservations reservation6 = new Reservations() { Id = 6, FanId = fan11.Id, ArtistId = artist2.Id, DateTime = new DateTime(2021, 09, 13) };
+            Reservations reservation7 = new Reservations() { Id = 7, FanId = fan6.Id, ArtistId = artist5.Id, DateTime = new DateTime(2021, 09, 14) };
+            Reservations reservation8 = new Reservations() { Id = 8, FanId = fan8.Id, ArtistId = artist6.Id, DateTime = new DateTime(2021, 09, 15) };
+            Reservations reservation9 = new Reservations() { Id = 9, FanId = fan3.Id, ArtistId = artist4.Id, DateTime = new DateTime(2021, 09, 16) };
+            Reservations reservation10 = new Reservations() { Id = 10, FanId = fan7.Id, ArtistId = artist1.Id, DateTime = new DateTime(2021, 09, 17) };
+            Reservations reservation11 = new Reservations() { Id = 11, FanId = fan9.Id, ArtistId = artist2.Id, DateTime = new DateTime(2021, 09, 18) };
+
+            ReservationsServices connection1 = new ReservationsServices() { Id = 1, ReservationId = reservation1.Id, ServiceId = service1.Id };
+            ReservationsServices connection2 = new ReservationsServices() { Id = 2, ReservationId = reservation2.Id, ServiceId = service2.Id };
+            ReservationsServices connection3 = new ReservationsServices() { Id = 3, ReservationId = reservation2.Id, ServiceId = service3.Id };
+            ReservationsServices connection4 = new ReservationsServices() { Id = 4, ReservationId = reservation2.Id, ServiceId = service4.Id };
+            ReservationsServices connection5 = new ReservationsServices() { Id = 5, ReservationId = reservation3.Id, ServiceId = service5.Id };
+            ReservationsServices connection6 = new ReservationsServices() { Id = 6, ReservationId = reservation4.Id, ServiceId = service6.Id };
+            ReservationsServices connection7 = new ReservationsServices() { Id = 7, ReservationId = reservation5.Id, ServiceId = service1.Id };
+            ReservationsServices connection8 = new ReservationsServices() { Id = 8, ReservationId = reservation5.Id, ServiceId = service2.Id };
+            ReservationsServices connection9 = new ReservationsServices() { Id = 9, ReservationId = reservation6.Id, ServiceId = service3.Id };
+            ReservationsServices connection10 = new ReservationsServices() { Id = 10, ReservationId = reservation7.Id, ServiceId = service4.Id };
+            ReservationsServices connection11 = new ReservationsServices() { Id = 11, ReservationId = reservation8.Id, ServiceId = service5.Id };
+            ReservationsServices connection12 = new ReservationsServices() { Id = 12, ReservationId = reservation9.Id, ServiceId = service6.Id };
+            ReservationsServices connection13 = new ReservationsServices() { Id = 13, ReservationId = reservation10.Id, ServiceId = service1.Id };
+            ReservationsServices connection14 = new ReservationsServices() { Id = 14, ReservationId = reservation11.Id, ServiceId = service2.Id };
+            ReservationsServices connection15 = new ReservationsServices() { Id = 15, ReservationId = reservation2.Id, ServiceId = service3.Id };
+            ReservationsServices connection16 = new ReservationsServices() { Id = 16, ReservationId = reservation4.Id, ServiceId = service4.Id };
+            ReservationsServices connection17 = new ReservationsServices() { Id = 17, ReservationId = reservation5.Id, ServiceId = service5.Id };
+            ReservationsServices connection18 = new ReservationsServices() { Id = 18, ReservationId = reservation8.Id, ServiceId = service6.Id };
+            ReservationsServices connection19 = new ReservationsServices() { Id = 19, ReservationId = reservation7.Id, ServiceId = service5.Id };
+            ReservationsServices connection20 = new ReservationsServices() { Id = 20, ReservationId = reservation10.Id, ServiceId = service1.Id };
+
+
+            modelBuilder.Entity<Reservations>(entity =>
+            {
+                entity.HasOne(reservation => reservation.Artist)
+                      .WithMany(artist => artist.Reservations)
+                      .HasForeignKey(reservation => reservation.ArtistId)
+                      .OnDelete(DeleteBehavior.SetNull);
+            });
+
+            modelBuilder.Entity<Reservations>(entity =>
+            {
+                entity.HasOne(reservation => reservation.Fan)
+                      .WithMany(fan => fan.Reservations)
+                      .HasForeignKey(reservation => reservation.FanId)
+                      .OnDelete(DeleteBehavior.SetNull);
+            });
+
+            modelBuilder.Entity<ReservationsServices>(entity =>
+            {
+                entity.HasOne(connection => connection.Reservations)
+                      .WithMany(reservation => reservation.ConnectorReservationsServices)
+                      .HasForeignKey(connection => connection.ReservationId)
+                      .OnDelete(DeleteBehavior.SetNull);
+            });
+
+            modelBuilder.Entity<ReservationsServices>(entity =>
+            {
+                entity.HasOne(connection => connection.Services)
+                      .WithMany(service => service.ConnectorReservationsServices)
+                      .HasForeignKey(connection => connection.ServiceId)
+                      .OnDelete(DeleteBehavior.SetNull);
+            });
+            modelBuilder.Entity<Fans>().HasData(fan1, fan2, fan3, fan4, fan5, fan6, fan7, fan8, fan9, fan10, fan11);
+            modelBuilder.Entity<Artists>().HasData(artist1, artist2, artist3, artist4, artist5, artist6);
+            modelBuilder.Entity<Services>().HasData(service1, service2, service3, service4, service5, service6);
+            modelBuilder.Entity<Reservations>().HasData(reservation1, reservation2, reservation3, reservation4, reservation5, reservation6, reservation7, reservation8, reservation9, reservation10, reservation11);
+            modelBuilder.Entity<ReservationsServices>().HasData(connection1, connection2, connection3, connection4, connection5, connection6, connection7, connection8, connection9, connection10, connection11, connection12, connection13, connection14, connection15, connection16, connection17, connection18, connection19, connection20);
+        
+
+    }
+
+    }
 }
