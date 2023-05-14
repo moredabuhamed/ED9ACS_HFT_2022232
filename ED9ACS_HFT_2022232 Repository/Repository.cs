@@ -1,14 +1,32 @@
 ﻿using ED9ACS_HFT_2022232_Data;
+using System.Linq;
 
 namespace ED9ACS_HFT_2022232_Repository
 {
-    public class Repository<T>
+    public abstract class Repository<T> : IRepository<T> where T : class
     {
-        private TalkWithYourFavoriteArtistDbContext dbContext;
-
-        public Repository(TalkWithYourFavoriteArtistDbContext dbContext)
+        protected TalkWithYourFavoriteArtistDbContext context;
+        protected Repository(TalkWithYourFavoriteArtistDbContext ctx)
         {
-            this.dbContext = dbContext;
+            this.context = ctx;
+        }
+        public void Add(T entity)
+        {
+            context.Set<T>().Add(entity);
+
+            context.SaveChanges();
+        }
+        public IQueryable<T> GetAll()
+        {
+            return this.context.Set<T>();
+        }
+        public abstract T GetOne(int id);
+        public void Delete(T entity)
+        {
+            context.Set<T>().Remove(entity);
+
+            context.SaveChanges();
         }
     }
-}
+
+ }
