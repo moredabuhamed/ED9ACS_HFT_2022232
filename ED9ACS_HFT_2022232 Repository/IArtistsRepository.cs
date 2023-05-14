@@ -1,6 +1,11 @@
-﻿namespace ED9ACS_HFT_2022232_Repository
+﻿using ED9ACS_HFT_2022232_Models;
+
+namespace ED9ACS_HFT_2022232_Repository
 {
-    internal interface IArtistsRepository
+    public interface IArtistsRepository : IRepository<Artists>
     {
+
+        void UpdatePrice(int id, int newprice);
+
     }
 }
