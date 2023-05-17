@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ED9ACS_HFT_2022232_Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace ED9ACS_HFT_2022232_Repository
 {
-    internal class IServicesRepository
+    public interface IServicesRepository : IRepository<Services>
     {
+        void UpdatePrice(int id, int newPrice);
+
+
     }
 }
