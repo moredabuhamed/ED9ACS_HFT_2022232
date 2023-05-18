@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System;
 
-namespace ED9ACS_HFT_2022232_Endpoint.Services
+namespace ED9ACS_HFT_2022232_Endpoint.services
 {
     public class SignalRHub : Hub
     {
