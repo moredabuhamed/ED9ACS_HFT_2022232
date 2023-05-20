@@ -8,18 +8,27 @@ using System.Threading.Tasks;
 
 namespace ED9ACS_HFT_2022232_Repository
 {
-    public interface IArtistsLogic
+    public class FansRepository : Repository<Fans>, IFansRepository
     {
-        public Artists AddNewArtist(Artists newartist);
-        public void DeleteArtist(int id);
-        Artists GetArtist(int id);
-        IEnumerable<Artists> GetAllArtists();
-        void UpdateArtistCost(Artists value);
+        public FansRepository(TalkWithYourFavoriteArtistDbContext DbContext) : base(DbContext) { }
+        public override Fans GetOne(int id)
+        {
+            return this.GetAll().SingleOrDefault(fan => fan.Id == id);
 
-        IEnumerable<KeyValuePair<string, int>> ArtistEarnings();
-        List<KeyValuePair<string, int>> MostPaidArtist();
-        List<KeyValuePair<string, int>> LessPaidArtist();
-
+        }
+        public void UpdateCity(int id, string newcity)
+        {
+            var Fan = this.GetOne(id);
+            if (Fan == null)
+            {
+                throw new Exception("This id doesn't match to any Fan in our Database");
+            }
+            else
+            {
+                Fan.City = newcity;
+                this.context.SaveChanges();
+            }
+        }
     }
 
 }

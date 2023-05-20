@@ -3,12 +3,8 @@ using System.Collections.Generic;
 
 namespace ED9ACS_HFT_2022232_Repository
 {
-    public interface IFansRepository
+    public interface IFansRepository : IRepository<Fans>
     {
-        void Add(Fans fan);
-        void Delete(Fans fanToDelete);
-        IEnumerable<Fans> GetAll();
-        Fans GetOne(int id);
         void UpdateCity(int id, string newcity);
 
     }
