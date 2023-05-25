@@ -10,7 +10,7 @@ namespace ED9ACS_HFT_2022232_Data
         public TalkWithYourFavoriteArtistDbContext()
         {
 
-            this.Database.EnsureCreated();
+         this.Database.EnsureCreated();
         }
 
         public TalkWithYourFavoriteArtistDbContext(DbContextOptions<TalkWithYourFavoriteArtistDbContext> options) : base(options) { }
@@ -25,8 +25,8 @@ namespace ED9ACS_HFT_2022232_Data
             {
                 optionsBuilder.
                     UseLazyLoadingProxies().
-                    UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf; Integrated Security = True;MultipleActiveResultSets = True;MultipleActiveResultSets=True");
-                
+                    UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename=""|DataDirectory|\Database1.mdf"";Integrated Security=True;MultipleActiveResultSets = True");
+                //(@"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename=""|DataDirectory|\HXINTLDatabase.mdf""; Integrated Security=True; MultipleActiveResultSets=True");
             }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
