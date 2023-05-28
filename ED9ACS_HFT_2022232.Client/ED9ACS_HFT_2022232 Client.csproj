@@ -16,12 +16,9 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\ED9ACS_HFT_2022232 Data\ED9ACS_HFT_2022232 Data.csproj" />
-    <ProjectReference Include="..\ED9ACS_HFT_2022232 Endpoint\ED9ACS_HFT_2022232 Endpoint.csproj" />
-    <ProjectReference Include="..\ED9ACS_HFT_2022232 Logic\ED9ACS_HFT_2022232 Logic.csproj" />
+    
     <ProjectReference Include="..\ED9ACS_HFT_2022232 Models\ED9ACS_HFT_2022232 Models.csproj" />
-    <ProjectReference Include="..\ED9ACS_HFT_2022232 Repository\ED9ACS_HFT_2022232 Repository.csproj" />
-    <ProjectReference Include="..\ED9ACS_HFT_2022232 Test\ED9ACS_HFT_2022232 Test.csproj" />
+    
   </ItemGroup>
 
 </Project>

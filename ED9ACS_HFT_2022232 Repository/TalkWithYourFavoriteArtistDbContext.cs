@@ -24,9 +24,8 @@ namespace ED9ACS_HFT_2022232_Data
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.
-                    UseLazyLoadingProxies().
-                    UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename=""|DataDirectory|\Database1.mdf"";Integrated Security=True;MultipleActiveResultSets = True");
-                //(@"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename=""|DataDirectory|\HXINTLDatabase.mdf""; Integrated Security=True; MultipleActiveResultSets=True");
+                   UseInMemoryDatabase("TalkWithYourFavoriteArtist_database")
+                   .UseLazyLoadingProxies();
             }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -31,7 +31,7 @@ namespace ED9ACS_HFT_2022232_Client
             }
             catch (HttpRequestException)
             {
-          //   throw new ArgumentException("Endpoint is not available!");
+            throw new ArgumentException("Endpoint is not available!");
             }
 
         }
