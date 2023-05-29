@@ -8,5 +8,7 @@ namespace ED9ACS_HFT_2022232_Repository
         IQueryable<T> ReadAll();
         void Create(T entity);
         void Delete(T entity);
+        void Update(T entity);
+
     }
 }
