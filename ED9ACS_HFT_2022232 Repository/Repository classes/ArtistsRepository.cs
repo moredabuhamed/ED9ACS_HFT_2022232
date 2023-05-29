@@ -19,21 +19,20 @@ namespace ED9ACS_HFT_2022232_Repository
 
         public override void Update(Artists entity)
         {
-
-        }
-
-        public void UpdatePrice(int id, int newprice)
-        {
-            var artist = this.Read(id);
+            var artist = this.Read(entity.Id);
             if (artist == null)
             {
-                throw new Exception("This id doesn't match to any artist in our Database");
+                throw new Exception("This id doesn't match any artist in our Database");
             }
             else
             {
-                artist.Price = newprice;
+                artist.Price = entity.Price;
                 this.context.SaveChanges();
             }
+
         }
+
+        
+        
     }
 }

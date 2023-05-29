@@ -29,11 +29,10 @@ namespace ED9ACS_HFT_2022232_Endpoint
             services.AddTransient<IReservationsLogic, ReservationsLogic>();
             services.AddTransient<IReservationsServicesLogic, ReservationsServicesLogic>();
             services.AddTransient<IServicesLogic, ServicesLogic>();
-            services.AddTransient<IFansRepository, FansRepository>();
-            services.AddTransient<IArtistsRepository, ArtistsRepository>();
-            services.AddTransient<IReservationsRepository, ReservationsRepository>();
-            services.AddTransient<IReservationsServicesRepository, ReservationsServicesRepository>();
-            services.AddTransient<IServicesRepository, ServicesRepository>();
+            services.AddTransient<IRepository<Fans>, FansRepository>();
+            services.AddTransient<IRepository<Artists>, ArtistsRepository>();
+            services.AddTransient< IRepository< Reservations>, ReservationsRepository>();
+            services.AddTransient<IRepository<Services>, ServicesRepository>();
             services.AddTransient<TalkWithYourFavoriteArtistDbContext, TalkWithYourFavoriteArtistDbContext>();
             services.AddSignalR();
 

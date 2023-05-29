@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ED9ACS_HFT_2022232_Repository
 {
-    public class ServicesRepository : Repository<Services>
+    public class ServicesRepository : Repository<Services>, IRepository<Services>
     {
         public ServicesRepository(TalkWithYourFavoriteArtistDbContext DbContext) : base(DbContext) { }
 
@@ -25,14 +25,14 @@ namespace ED9ACS_HFT_2022232_Repository
                 this.context.SaveChanges();
             }
         }
-
-
-
-
         public override Services Read(int id)
         {
             return this.ReadAll().SingleOrDefault(service => service.Id == id);
         }
+
+
+
+
 
 
     }

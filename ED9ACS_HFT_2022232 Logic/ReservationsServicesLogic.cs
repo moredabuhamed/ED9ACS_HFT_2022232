@@ -10,9 +10,9 @@ namespace ED9ACS_HFT_2022232_Logic
 {
     public class ReservationsServicesLogic : IReservationsServicesLogic
     {
-        protected IReservationsServicesRepository _ReservationsServicesConnectionRepository;
+        protected IRepository<ReservationsServices> _ReservationsServicesConnectionRepository;
 
-        public ReservationsServicesLogic(IReservationsServicesRepository reservationsServicesConnectionRepository)
+        public ReservationsServicesLogic(IRepository<ReservationsServices> reservationsServicesConnectionRepository)
         {
             _ReservationsServicesConnectionRepository = reservationsServicesConnectionRepository;
         }

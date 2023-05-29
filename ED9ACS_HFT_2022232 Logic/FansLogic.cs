@@ -10,9 +10,9 @@ namespace ED9ACS_HFT_2022232_Logic
 {
     public class FansLogic : IFansLogic
     {
-        protected IReservationsRepository _ReservationsRepository;
-        protected IFansRepository _FansRepository;
-        public FansLogic(IReservationsRepository reservationsRepo, IFansRepository fansRepo)
+        protected IRepository<Reservations> _ReservationsRepository;
+        protected IRepository<Fans> _FansRepository;
+        public FansLogic(IRepository<Reservations> reservationsRepo, IRepository<Fans> fansRepo)
         {
             _ReservationsRepository = reservationsRepo;
             _FansRepository = fansRepo;
@@ -20,7 +20,7 @@ namespace ED9ACS_HFT_2022232_Logic
 
         public void UpdateCity(Fans fan)
         {
-            this._FansRepository.UpdateCity(fan.Id, fan.City);
+            this._FansRepository.Update(fan);
         }
         public Fans AddNewFan(Fans fan)
         {

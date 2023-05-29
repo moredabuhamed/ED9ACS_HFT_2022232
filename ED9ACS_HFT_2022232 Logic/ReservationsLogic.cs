@@ -11,11 +11,11 @@ namespace ED9ACS_HFT_2022232_Logic
     public class ReservationsLogic : IReservationsLogic
     {
 
-        protected IReservationsRepository _ReservationsRepository;
-        protected IFansRepository _fansrepo;
-        protected IArtistsRepository _artistrepo;
+        protected IRepository<Reservations> _ReservationsRepository;
+        protected IRepository<Fans> _fansrepo;
+        protected IRepository<Artists> _artistrepo;
 
-        public ReservationsLogic(IReservationsRepository reservationsRepository, IFansRepository fansrepo, IArtistsRepository artistrepo)
+        public ReservationsLogic(IRepository<Reservations> reservationsRepository, IRepository<Fans> fansrepo, IRepository<Artists> artistrepo)
         {
             _ReservationsRepository = reservationsRepository;
             _fansrepo = fansrepo;
@@ -24,7 +24,7 @@ namespace ED9ACS_HFT_2022232_Logic
 
         public void UpdateReservationDate(Reservations reser)
         {
-            this._ReservationsRepository.UpdateDate(reser.Id, reser.DateTime);
+            this._ReservationsRepository.Update(reser);
         }
         public Reservations AddNewReservation(Reservations reser)
         {

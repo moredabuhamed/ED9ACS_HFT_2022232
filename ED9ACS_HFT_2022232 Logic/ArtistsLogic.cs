@@ -9,10 +9,10 @@ namespace ED9ACS_HFT_2022232_Logic
     public class ArtistsLogic : IArtistsLogic
     {
 
-        protected IArtistsRepository _ArtistRepository;
-        protected IReservationsRepository _ReservationsRepository;
+        IRepository<Artists> _ArtistRepository;
+        IRepository<Reservations> _ReservationsRepository;
 
-        public ArtistsLogic(IArtistsRepository artistRepository, IReservationsRepository reservationsRepository)
+        public ArtistsLogic(IRepository<Artists> artistRepository, IRepository<Reservations> reservationsRepository)
         {
             _ArtistRepository = artistRepository;
             _ReservationsRepository = reservationsRepository;
@@ -38,7 +38,7 @@ namespace ED9ACS_HFT_2022232_Logic
         }
         public void UpdateArtistCost(Artists value)
         {
-            this._ArtistRepository.UpdatePrice(value.Id, value.Price);
+            this._ArtistRepository.Update(value);
         }
         public IEnumerable<Artists> GetAllArtists()
         {

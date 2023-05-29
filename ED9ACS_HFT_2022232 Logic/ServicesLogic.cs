@@ -10,16 +10,16 @@ namespace ED9ACS_HFT_2022232_Logic
 {
     public class ServicesLogic : IServicesLogic
     {
-        protected IServicesRepository _ServicesRepository;
+        protected IRepository<Services> _ServicesRepository;
 
-        public ServicesLogic(IServicesRepository servicesRepository)
+        public ServicesLogic(IRepository<Services> servicesRepository)
         {
             _ServicesRepository = servicesRepository;
         }
 
         public void UpdateServiceCost(Services serv)
         {
-            this._ServicesRepository.UpdatePrice(serv.Id, serv.Price);
+            this._ServicesRepository.Update(serv);
         }
         public IEnumerable<Services> GetAllServices()
         {

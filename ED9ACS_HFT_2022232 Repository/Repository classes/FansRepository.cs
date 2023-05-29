@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ED9ACS_HFT_2022232_Repository
 {
-    public class FansRepository : Repository<Fans>, IFansRepository
+    public class FansRepository : Repository<Fans>, IRepository<Fans>
     {
         public FansRepository(TalkWithYourFavoriteArtistDbContext DbContext) : base(DbContext) { }
         public override Fans Read(int id)
@@ -31,19 +31,7 @@ namespace ED9ACS_HFT_2022232_Repository
             }
         }
 
-        public void UpdateCity(int id, string newcity)
-        {
-            var Fan = this.Read(id);
-            if (Fan == null)
-            {
-                throw new Exception("This id doesn't match to any Fan in our Database");
-            }
-            else
-            {
-                Fan.City = newcity;
-                this.context.SaveChanges();
-            }
-        }
+     
     }
 
 }
