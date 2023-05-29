@@ -10,22 +10,25 @@ namespace ED9ACS_HFT_2022232_Repository
         {
             this.context = ctx;
         }
-        public void Add(T entity)
+        public void Create(T entity)
         {
             context.Set<T>().Add(entity);
 
             context.SaveChanges();
         }
-        public IQueryable<T> GetAll()
+        public IQueryable<T> ReadAll()
         {
             return this.context.Set<T>();
         }
-        public abstract T GetOne(int id);
+        public abstract T Read(int id);
         public void Delete(T entity)
         {
             context.Set<T>().Remove(entity);
             context.SaveChanges();
         }
+
+        public abstract void Update(T entity);
+
     }
 
- }
+}

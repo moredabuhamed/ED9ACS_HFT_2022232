@@ -36,11 +36,11 @@ namespace ED9ACS_HFT_2022232_Test
                 new Reservations(){Id = 4 , FanId=1,ArtistId=3,DateTime=new DateTime(2021,11,29) },
                 new Reservations(){Id = 5 , FanId=1,ArtistId=1,DateTime=new DateTime(2021,11,20) }
             }.AsQueryable();
-            MockFanRepository.Setup((t) => t.GetAll()).Returns(fans);
-            MockReservationsRepository.Setup((t) => t.GetAll()).Returns(Reservations);
+            MockFanRepository.Setup((t) => t.ReadAll()).Returns(fans);
+            MockReservationsRepository.Setup((t) => t.ReadAll()).Returns(Reservations);
             for (int i = 0; i < 5; i++)
             {
-                MockFanRepository.Setup((t) => t.GetOne(i + 1)).Returns(fans.ToList()[i]);
+                MockFanRepository.Setup((t) => t.Read(i + 1)).Returns(fans.ToList()[i]);
             }
             FL = new FansLogic(MockReservationsRepository.Object, MockFanRepository.Object);
         }

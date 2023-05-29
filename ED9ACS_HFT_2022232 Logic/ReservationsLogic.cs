@@ -30,20 +30,20 @@ namespace ED9ACS_HFT_2022232_Logic
         {
 
 
-            if (_fansrepo.GetOne((int)reser.FanId) == null || _artistrepo.GetOne((int)reser.ArtistId) == null)
+            if (_fansrepo.Read((int)reser.FanId) == null || _artistrepo.Read((int)reser.ArtistId) == null)
             {
                 throw new Exception("Invalid data");
             }
             else
             {
-                this._ReservationsRepository.Add(reser);
+                this._ReservationsRepository.Create(reser);
                 return reser;
             }
 
         }
         public void DeleteReservation(int id)
         {
-            Reservations ReservationToDelete = this._ReservationsRepository.GetOne(id);
+            Reservations ReservationToDelete = this._ReservationsRepository.Read(id);
             if (ReservationToDelete != null)
             {
                 this._ReservationsRepository.Delete(ReservationToDelete);
@@ -51,11 +51,11 @@ namespace ED9ACS_HFT_2022232_Logic
         }
         public IEnumerable<Reservations> GetAllReservations()
         {
-            return this._ReservationsRepository.GetAll();
+            return this._ReservationsRepository.ReadAll();
         }
         public Reservations GetReservation(int id)
         {
-            Reservations ReservationToReturn = this._ReservationsRepository.GetOne(id);
+            Reservations ReservationToReturn = this._ReservationsRepository.Read(id);
             if (ReservationToReturn != null)
             {
                 return ReservationToReturn;

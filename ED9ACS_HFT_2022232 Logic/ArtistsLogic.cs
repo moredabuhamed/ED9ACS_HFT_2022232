@@ -21,12 +21,12 @@ namespace ED9ACS_HFT_2022232_Logic
         public Artists AddNewArtist(Artists NewArtist)
         {
 
-            this._ArtistRepository.Add(NewArtist);
+            this._ArtistRepository.Create(NewArtist);
             return NewArtist;
         }
         public void DeleteArtist(int id)
         {
-            Artists ArtistToDelete = this._ArtistRepository.GetOne(id);
+            Artists ArtistToDelete = this._ArtistRepository.Read(id);
             if (ArtistToDelete != null)
             {
                 this._ArtistRepository.Delete(ArtistToDelete);
@@ -42,11 +42,11 @@ namespace ED9ACS_HFT_2022232_Logic
         }
         public IEnumerable<Artists> GetAllArtists()
         {
-            return this._ArtistRepository.GetAll();
+            return this._ArtistRepository.ReadAll();
         }
         public Artists GetArtist(int id)
         {
-            Artists ArtistToReturn = this._ArtistRepository.GetOne(id);
+            Artists ArtistToReturn = this._ArtistRepository.Read(id);
             if (ArtistToReturn != null)
             {
                 return ArtistToReturn;
@@ -63,12 +63,12 @@ namespace ED9ACS_HFT_2022232_Logic
         // 3 non-crud methods
         public IEnumerable<KeyValuePair<string, int>> ArtistEarnings()
         {
-            var TotalEarning = from artists in this._ArtistRepository.GetAll().ToList()
-                               join reservations in this._ReservationsRepository.GetAll().ToList()
+            var TotalEarning = from artists in this._ArtistRepository.ReadAll().ToList()
+                               join reservations in this._ReservationsRepository.ReadAll().ToList()
                                on artists.Id equals reservations.ArtistId
                                group reservations by reservations.ArtistId.Value into gr
                                select new KeyValuePair<string, int>
-                               (_ArtistRepository.GetOne(gr.Key).Name, (gr.Count()) * _ArtistRepository.GetOne(gr.Key).Price);
+                               (_ArtistRepository.Read(gr.Key).Name, (gr.Count()) * _ArtistRepository.Read(gr.Key).Price);
             return TotalEarning;
         }
         public List<KeyValuePair<string, int>> MostPaidArtist()

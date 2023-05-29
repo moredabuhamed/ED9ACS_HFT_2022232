@@ -11,14 +11,20 @@ namespace ED9ACS_HFT_2022232_Repository
     public class ArtistsRepository : Repository<Artists>, IArtistsRepository
     {
         public ArtistsRepository(TalkWithYourFavoriteArtistDbContext DbContext) : base(DbContext) { }
-        public override Artists GetOne(int id)
+        public override Artists Read(int id)
         {
-            return this.GetAll().SingleOrDefault(artist => artist.Id == id);
+            return this.ReadAll().SingleOrDefault(artist => artist.Id == id);
 
         }
+
+        public override void Update(Artists entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public void UpdatePrice(int id, int newprice)
         {
-            var artist = this.GetOne(id);
+            var artist = this.Read(id);
             if (artist == null)
             {
                 throw new Exception("This id doesn't match to any artist in our Database");

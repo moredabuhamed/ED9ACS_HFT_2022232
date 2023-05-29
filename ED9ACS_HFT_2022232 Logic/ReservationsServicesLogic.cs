@@ -19,12 +19,12 @@ namespace ED9ACS_HFT_2022232_Logic
 
         public ReservationsServices AddNewConnection(ReservationsServices reserserv)
         {
-            this._ReservationsServicesConnectionRepository.Add(reserserv);
+            this._ReservationsServicesConnectionRepository.Create(reserserv);
             return reserserv;
         }
         public void DeleteConnection(int id)
         {
-            ReservationsServices ConnectionToDelete = this._ReservationsServicesConnectionRepository.GetOne(id);
+            ReservationsServices ConnectionToDelete = this._ReservationsServicesConnectionRepository.Read(id);
             if (ConnectionToDelete != null)
             {
                 this._ReservationsServicesConnectionRepository.Delete(ConnectionToDelete);
@@ -32,11 +32,11 @@ namespace ED9ACS_HFT_2022232_Logic
         }
         public IEnumerable<ReservationsServices> GetAllConnections()
         {
-            return this._ReservationsServicesConnectionRepository.GetAll();
+            return this._ReservationsServicesConnectionRepository.ReadAll();
         }
         public ReservationsServices GetConnection(int id)
         {
-            ReservationsServices ReservationsServicesToReturn = this._ReservationsServicesConnectionRepository.GetOne(id);
+            ReservationsServices ReservationsServicesToReturn = this._ReservationsServicesConnectionRepository.Read(id);
             if (ReservationsServicesToReturn != null)
             {
                 return ReservationsServicesToReturn;

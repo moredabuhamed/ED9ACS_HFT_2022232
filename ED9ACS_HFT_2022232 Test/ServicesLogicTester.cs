@@ -27,10 +27,10 @@ namespace ED9ACS_HFT_2022232_Test
                 new Services(){Id=4,Name="service4",Price=4,Rating=5},
                 new Services(){Id=5,Name="service5",Price=5,Rating=6},
             }.AsQueryable();
-            MockServicesRepository.Setup((t) => t.GetAll()).Returns(Services);
+            MockServicesRepository.Setup((t) => t.ReadAll()).Returns(Services);
             for (int i = 0; i < 5; i++)
             {
-                MockServicesRepository.Setup((t) => t.GetOne(i + 1)).Returns(Services.ToList()[i]);
+                MockServicesRepository.Setup((t) => t.Read(i + 1)).Returns(Services.ToList()[i]);
             }
             SL = new ServicesLogic(MockServicesRepository.Object);
         }

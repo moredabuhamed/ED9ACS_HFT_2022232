@@ -13,7 +13,7 @@ namespace ED9ACS_HFT_2022232_Repository
         public ReservationsRepository(TalkWithYourFavoriteArtistDbContext DbContext) : base(DbContext) { }
         public void UpdateDate(int id, DateTime newDate)
         {
-            var reservation = this.GetOne(id);
+            var reservation = this.Read(id);
             if (reservation == null)
             {
                 throw new Exception("This id doesn't match to any order in our Database");
@@ -26,10 +26,24 @@ namespace ED9ACS_HFT_2022232_Repository
             }
 
         }
-        public override Reservations GetOne(int id)
+        public override Reservations Read(int id)
         {
-            return this.GetAll().SingleOrDefault(reservation => reservation.Id == id);
+            return this.ReadAll().SingleOrDefault(reservation => reservation.Id == id);
 
+        }
+
+        public override void Update(Reservations entity)
+        {
+            var reservation = this.Read(entity.Id);
+            if (reservation == null)
+            {
+                throw new Exception("This id doesn't match any order in our Database");
+            }
+            else
+            {
+                reservation.DateTime = entity.DateTime;
+                this.context.SaveChanges();
+            }
         }
     }
 }

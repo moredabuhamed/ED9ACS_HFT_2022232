@@ -31,14 +31,14 @@ namespace ED9ACS_HFT_2022232_Logic
             else
             {
 
-                this._FansRepository.Add(fan);
+                this._FansRepository.Create(fan);
                 return fan;
             }
 
         }
         public void DeleteFan(int id)
         {
-            Fans FanToDelete = this._FansRepository.GetOne(id);
+            Fans FanToDelete = this._FansRepository.Read(id);
             if (FanToDelete != null)
             {
                 this._FansRepository.Delete(FanToDelete);
@@ -50,11 +50,11 @@ namespace ED9ACS_HFT_2022232_Logic
         }
         public IEnumerable<Fans> GetAllFans()
         {
-            return this._FansRepository.GetAll();
+            return this._FansRepository.ReadAll();
         }
         public Fans GetFan(int id)
         {
-            Fans fanToReturn = this._FansRepository.GetOne(id);
+            Fans fanToReturn = this._FansRepository.Read(id);
             if (fanToReturn != null)
             {
                 return fanToReturn;
@@ -71,8 +71,8 @@ namespace ED9ACS_HFT_2022232_Logic
         {
 
 
-            var BestFan = from fan in this._FansRepository.GetAll().ToList()
-                          join Reservations in this._ReservationsRepository.GetAll().ToList()
+            var BestFan = from fan in this._FansRepository.ReadAll().ToList()
+                          join Reservations in this._ReservationsRepository.ReadAll().ToList()
                           on fan.Id equals Reservations.FanId
                           group Reservations by Reservations.FanId.Value into gr
                           select new
@@ -92,8 +92,8 @@ namespace ED9ACS_HFT_2022232_Logic
         }
         public List<KeyValuePair<int, int>> WorstFan()
         {
-            var WorstFan = from fan in this._FansRepository.GetAll().ToList()
-                           join Reservations in this._ReservationsRepository.GetAll().ToList()
+            var WorstFan = from fan in this._FansRepository.ReadAll().ToList()
+                           join Reservations in this._ReservationsRepository.ReadAll().ToList()
                            on fan.Id equals Reservations.FanId
                            group Reservations by Reservations.FanId.Value into gr
                            select new
@@ -119,7 +119,7 @@ namespace ED9ACS_HFT_2022232_Logic
             }
             else
             {
-                var res = this._ReservationsRepository.GetAll().Count(x => x.FanId == id);
+                var res = this._ReservationsRepository.ReadAll().Count(x => x.FanId == id);
                 return res;
             }
 

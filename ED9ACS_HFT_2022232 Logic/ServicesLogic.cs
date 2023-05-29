@@ -23,11 +23,11 @@ namespace ED9ACS_HFT_2022232_Logic
         }
         public IEnumerable<Services> GetAllServices()
         {
-            return this._ServicesRepository.GetAll();
+            return this._ServicesRepository.ReadAll();
         }
         public Services GetService(int id)
         {
-            Services ServiceToReturn = this._ServicesRepository.GetOne(id);
+            Services ServiceToReturn = this._ServicesRepository.Read(id);
             if (ServiceToReturn != null)
             {
                 return ServiceToReturn;
@@ -46,14 +46,14 @@ namespace ED9ACS_HFT_2022232_Logic
             else
             {
 
-                this._ServicesRepository.Add(serv);
+                this._ServicesRepository.Create(serv);
                 return serv;
             }
 
         }
         public void DeleteService(int id)
         {
-            Services ServiceToDelete = this._ServicesRepository.GetOne(id);
+            Services ServiceToDelete = this._ServicesRepository.Read(id);
             if (ServiceToDelete != null)
             {
                 this._ServicesRepository.Delete(ServiceToDelete);

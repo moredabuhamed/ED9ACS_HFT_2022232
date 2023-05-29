@@ -11,14 +11,34 @@ namespace ED9ACS_HFT_2022232_Repository
     public class ServicesRepository : Repository<Services>, IServicesRepository
     {
         public ServicesRepository(TalkWithYourFavoriteArtistDbContext DbContext) : base(DbContext) { }
-        public override Services GetOne(int id)
+
+        public override void Update(Services entity)
         {
-            return this.GetAll().SingleOrDefault(service => service.Id == id);
+            var service = this.Read(entity.Id);
+            if (service == null)
+            {
+                throw new Exception("This id doesn't match any service in our Database");
+            }
+            else
+            {
+                service.Price = entity.Price;
+                this.context.SaveChanges();
+            }
         }
+
+
+
+
+        public override Services Read(int id)
+        {
+            return this.ReadAll().SingleOrDefault(service => service.Id == id);
+        }
+
+       
 
         public void UpdatePrice(int id, int newPrice)
         {
-            var service = this.GetOne(id);
+            var service = this.Read(id);
             if (service == null)
             {
                 throw new Exception("This id doesn't match to any service in our Database");

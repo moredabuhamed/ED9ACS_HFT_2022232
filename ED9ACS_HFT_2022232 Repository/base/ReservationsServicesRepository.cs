@@ -11,12 +11,15 @@ namespace ED9ACS_HFT_2022232_Repository
     public class ReservationsServicesRepository : Repository<ReservationsServices>, IReservationsServicesRepository
     {
         public ReservationsServicesRepository(TalkWithYourFavoriteArtistDbContext DbContext) : base(DbContext) { }
-        public override ReservationsServices GetOne(int id)
+        public override ReservationsServices Read(int id)
         {
-            return this.GetAll().SingleOrDefault(connection => connection.Id == id);
+            return this.ReadAll().SingleOrDefault(connection => connection.Id == id);
 
         }
 
-
+        public override void Update(ReservationsServices entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
