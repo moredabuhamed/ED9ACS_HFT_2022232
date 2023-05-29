@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ED9ACS_HFT_2022232_Repository
 {
-    public class ArtistsRepository : Repository<Artists>, IArtistsRepository
+    public class ArtistsRepository : Repository<Artists>, IRepository<Artists>
     {
         public ArtistsRepository(TalkWithYourFavoriteArtistDbContext DbContext) : base(DbContext) { }
         public override Artists Read(int id)
@@ -19,7 +19,7 @@ namespace ED9ACS_HFT_2022232_Repository
 
         public override void Update(Artists entity)
         {
-            throw new NotImplementedException();
+
         }
 
         public void UpdatePrice(int id, int newprice)

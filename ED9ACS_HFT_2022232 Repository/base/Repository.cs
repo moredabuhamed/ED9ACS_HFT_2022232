@@ -20,13 +20,12 @@ namespace ED9ACS_HFT_2022232_Repository
         {
             return this.context.Set<T>();
         }
-        public abstract T Read(int id);
         public void Delete(T entity)
         {
             context.Set<T>().Remove(entity);
             context.SaveChanges();
         }
-
+        public abstract T Read(int id);
         public abstract void Update(T entity);
 
     }
