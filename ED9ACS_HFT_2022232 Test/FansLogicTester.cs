@@ -18,8 +18,8 @@ namespace ED9ACS_HFT_2022232_Test
         [SetUp]
         public void Init()
         {
-            var MockFanRepository = new Mock<IFansRepository>();
-            var MockReservationsRepository = new Mock<IReservationsRepository>();
+            var MockFanRepository = new Mock<IRepository<Fans>>();
+            var MockReservationsRepository = new Mock<IRepository<Reservations>>();
             var fans = new List<Fans>()
             {
                 new Fans(){ Id =1,City="Budapest1",Email="fan1@gmail.com",Name="fan1",PhoneNumber=11111111},

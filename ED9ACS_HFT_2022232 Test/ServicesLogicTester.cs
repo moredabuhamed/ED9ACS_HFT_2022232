@@ -18,7 +18,7 @@ namespace ED9ACS_HFT_2022232_Test
         [SetUp]
         public void Init()
         {
-            var MockServicesRepository = new Mock<IServicesRepository>();
+            var MockServicesRepository = new Mock<IRepository<Services>>();
             var Services = new List<Services>()
             {
                 new Services(){Id=1,Name="service1",Price=1,Rating=2},

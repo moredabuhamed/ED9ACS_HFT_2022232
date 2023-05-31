@@ -9,8 +9,8 @@ namespace ED9ACS_HFT_2022232_Logic
     public class ArtistsLogic : IArtistsLogic
     {
 
-        IRepository<Artists> _ArtistRepository;
-        IRepository<Reservations> _ReservationsRepository;
+        protected IRepository<Artists> _ArtistRepository;
+        protected IRepository<Reservations> _ReservationsRepository;
 
         public ArtistsLogic(IRepository<Artists> artistRepository, IRepository<Reservations> reservationsRepository)
         {

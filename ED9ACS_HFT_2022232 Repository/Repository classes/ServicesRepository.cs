@@ -12,19 +12,19 @@ namespace ED9ACS_HFT_2022232_Repository
     {
         public ServicesRepository(TalkWithYourFavoriteArtistDbContext DbContext) : base(DbContext) { }
 
-        public override void Update(Services entity)
-        {
-            var service = this.Read(entity.Id);
-            if (service == null)
+            public override void Update(Services entity)
             {
-                throw new Exception("This id doesn't match any service in our Database");
+                var service = this.Read(entity.Id);
+                if (service == null)
+                {
+                    throw new Exception("This id doesn't match any service in our Database");
+                }
+                else
+                {
+                    service.Price = entity.Price;
+                    this.context.SaveChanges();
+                }
             }
-            else
-            {
-                service.Price = entity.Price;
-                this.context.SaveChanges();
-            }
-        }
         public override Services Read(int id)
         {
             return this.ReadAll().SingleOrDefault(service => service.Id == id);

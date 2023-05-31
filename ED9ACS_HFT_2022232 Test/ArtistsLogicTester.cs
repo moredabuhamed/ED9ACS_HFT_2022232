@@ -17,8 +17,8 @@ namespace ED9ACS_HFT_2022232_Test
         [SetUp]
         public void Init()
         {
-            var MockArtistRepository = new Mock<IArtistsRepository>();
-            var MockReservationsRepository = new Mock<IReservationsRepository>();
+            var MockArtistRepository = new Mock<IRepository<Artists>>();
+            var MockReservationsRepository = new Mock<IRepository<Reservations>>();
             var Artists = new List<Artists>()
             {
                 new Artists(){Id=1,Name="artist1",Category="c1",Price=100,Duration=1 },
