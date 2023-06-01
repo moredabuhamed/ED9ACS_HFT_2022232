@@ -17,9 +17,6 @@ namespace Client
                 .Add(">> READ By Id", () => ReadFanById(rest))
                 .Add(">> READ All", () => ReadAllFans(rest))
                 .Add(">> DELETE", () => DeleteFan(rest))
-                .Add(">> Best Fan (non-crud)", () => BestFan(rest))
-                .Add(">> Worst Fan (non-crud)", () => WorstFan(rest))
-                .Add(">> Reservations count (non-crud) ", () => CountResers(rest))
                 .Add(">> GO BACK TO MENU", ConsoleMenu.Close)
                 .Configure(config =>
                 {
@@ -45,9 +42,7 @@ namespace Client
                 .Add(">> READ All", () => ReadAllArtists(rest))
                 .Add(">> UpdateCost", () => UpdateArtistcost(rest))
                 .Add(">> DELETE", () => DeleteArtist(rest))
-                .Add(">> Artists Earnings (non-crud)", () => Artistearrings(rest))
-                .Add(">> Most Paid Artist (non-crud)", () => MostPaidArt(rest))
-                .Add(">> Less Paid Artist (non-crud)", () => LessPaidArt(rest))
+                
                 .Add(">> GO BACK TO MENU", ConsoleMenu.Close)
                 .Configure(config =>
                 {
@@ -103,8 +98,9 @@ namespace Client
                     config.SelectedItemBackgroundColor = ConsoleColor.Blue;
                 });
             var MainMenu = new ConsoleMenu(args, level: 0)
-                .Add(">> Fan", () => MenuForFans.Show())
-                .Add(">> Administrator ", () => menuForAdministrator.Show())
+                .Add("CRUD methods", () => CrudMenu( MenuForFans, menuForAdministrator))
+                .Add("non-CRUD methods", () => NonCrudMenu(rest))
+                
                 .Add(">> Exit", ConsoleMenu.Close)
                 .Configure(config =>
                 {
@@ -114,6 +110,29 @@ namespace Client
 
             MainMenu.Show();
 
+        }
+
+        private static void CrudMenu(ConsoleMenu MenuForFans, ConsoleMenu menuForAdministrator)
+        {
+            var MainMenu = new ConsoleMenu()
+                 .Add(">> Fan", () => MenuForFans.Show())
+                 .Add(">> Administrator ", () => menuForAdministrator.Show())
+                 .Add("Exit", ConsoleMenu.Close);
+            MainMenu.Show();
+        }
+
+        private static void NonCrudMenu(RestService rest)
+        {
+            var MainMenu = new ConsoleMenu()
+                .Add(">> Artists Earnings (non-crud)", () => Artistearrings(rest))
+                .Add(">> Most Paid Artist (non-crud)", () => MostPaidArt(rest))
+                .Add(">> Less Paid Artist (non-crud)", () => LessPaidArt(rest))
+                .Add(">> Artists Earnings (non-crud)", () => Artistearrings(rest))
+                .Add(">> Most Paid Artist (non-crud)", () => MostPaidArt(rest))
+                .Add(">> Less Paid Artist (non-crud)", () => LessPaidArt(rest))
+
+                .Add("Exit", ConsoleMenu.Close);
+            MainMenu.Show();
         }
         #region fansMethods
         private static void AddNewFan(RestService rest)
