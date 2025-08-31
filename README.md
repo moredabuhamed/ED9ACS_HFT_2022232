@@ -1,6 +1,7 @@
 # ED9ACS_HFT_2022232
 
-A comprehensive .NET 6 solution for managing fans, artists, reservations, and services, featuring a RESTful API, business logic, repository layer, console client, and unit tests. Designed for modularity, maintainability, and extensibility.
+A **.NET 6 solution** for managing fans, artists, reservations, and services.  
+The system provides a RESTful API, business logic layer, repository layer, console client, unit tests, and real-time updates with SignalR.
 
 ---
 
@@ -31,12 +32,6 @@ ED9ACS_HFT_2022232.sln
 ---
 
 ## Getting Started
-
-### Prerequisites
-
-- Ubuntu 24.04.2 LTS (dev container supported)
-- [.NET 6 SDK](https://dotnet.microsoft.com/download)
-- (Optional) Docker
 
 ### Build the Solution
 
@@ -98,29 +93,6 @@ dotnet test
 - SignalR
 - xUnit/NUnit/MSTest for testing
 - REST client (HttpClient) in console app
-
----
-
-## Development Notes
-
-- All code runs in a dev container on Ubuntu 24.04.2 LTS.
-- CORS is enabled for `http://localhost:4200` (Angular frontend support).
-- Configuration files: `appsettings.json`, `appsettings.Development.json`.
-
----
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Open a pull request
-
----
-
-## License
-
-This project is for educational purposes.
 
 ---
 
